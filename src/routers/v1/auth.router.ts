@@ -9,7 +9,6 @@ import {
   whoami,
 } from "../../controllers/auth.controller";
 import { hasRole, requireAuth } from "../../middlewares/auth.middleware";
-import { Role } from "@prisma/client";
 
 const authRouter = express.Router();
 

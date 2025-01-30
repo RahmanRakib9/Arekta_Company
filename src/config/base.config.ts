@@ -5,6 +5,7 @@ const config = {
   // GENERAL APP CONFIG
   ENV: process.env.NODE_ENV,
   PORT: process.env.PORT,
+  DATABASE_URL: process.env.DATABASE_URL,
 
   // ASYMMETRIC AUTH CONFIG
   RSA_PRIVATE_KEY: Buffer.from(process.env.RSA_PRIVATE_KEY, "utf-8").toString(),

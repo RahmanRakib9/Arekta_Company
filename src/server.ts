@@ -25,7 +25,6 @@ if (config.ENV === "development") {
 
 /*-------------------ROUTERS-------------------*/
 server.use("/api/v1/auth", authRouter);
-server.use("/docs", docsRouter);
 server.get("/", (req, res) => {
   return res.status(httpStatus.OK).send({ message: "The Server is running successfully!" });
 });

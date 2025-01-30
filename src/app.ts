@@ -3,11 +3,11 @@ import { server } from "./server";
 import logger from "./utils/logger";
 import * as amqp from "./lib/amqp";
 import amqpConfig from "./config/amqp.config";
+import prisma from "./lib/prisma";
 
 const startServer = async () => {
   try {
-    await amqp.init(amqpConfig.EXCHANGES, amqpConfig.QUEUES, amqpConfig.BINDINGS);
-    logger.info(`Initialized RabbitMQ.`);
+    await prisma.$connect();
 
     server.listen(config.PORT, async () => {
       logger.info(`Server is running on port ${config.PORT}`);
