@@ -7,14 +7,19 @@ const signInSchema = z.object({
   }),
 });
 
-const signUpSchema = z
+const createUserSchema = z
   .object({
+    id:z.string().optional(),
+    username: z.string(),
     email: z.string().email({ message: "Invalid email address" }),
     password: z.string().min(6, {
       message: "Password must be at least 6 characters",
     }),
-    username: z.string().min(3, { message: "Username must be 3 or more characters long." }),
-    displayName: z.string().min(3, { message: "Display Name must be 3 or more characters long." }).optional(),
+    contactNumber:z.string(),
+    Designation: z.enum(["USER", "ADMIN"], { message: "Invalid designation" }),
+    isVerified: z.boolean(),
+    packageId: z.string(),
+    restaurants: z.array(z.string()).optional(),
   })
   .openapi({
     description: "Email-Pass Signup payload Schema",
@@ -73,7 +78,7 @@ const googleOAuth2SignInSchema = z
 
 export {
   signInSchema,
-  signUpSchema,
+  createUserSchema,
   changePasswordSchema,
   redeemChangePasswordSchema,
   refreshAccessTokenSchema,
