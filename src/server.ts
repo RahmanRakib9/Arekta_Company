@@ -26,7 +26,7 @@ if (config.ENV === "development") {
 
 /*-------------------ROUTERS-------------------*/
 server.use("/api/v1/auth", authRouter);
-server.use("/api/v1/restaurants",restaurantRouter);
+server.use("/api/v1/restaurants", restaurantRouter);
 server.get("/", (req, res) => {
   return res.status(httpStatus.OK).send({ message: "The Server is running successfully!" });
 });

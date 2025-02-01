@@ -1,7 +1,5 @@
 import express from "express";
-import {
-  createUser,
-} from "../../controllers/auth.controller";
+import { createUser } from "../../controllers/auth.controller";
 import { hasRole, requireAuth } from "../../middlewares/auth.middleware";
 
 const authRouter = express.Router();

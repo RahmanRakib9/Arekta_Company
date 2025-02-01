@@ -54,13 +54,11 @@ const handleCreateUser = async (payload: IUser) => {
     userName: payload.userName,
     email: payload.email,
     contactNumber: payload.contactNumber,
-    designation: payload.designation, 
+    designation: payload.designation,
     isVerified: payload.isVerified,
     password: passwordHash,
-    package: payload.packageId ? { connect: { id: payload.packageId } } : undefined, 
-    restaurants: payload.restaurants?.length
-      ? { connect: payload.restaurants.map((id) => ({ id })) }
-      : undefined, 
+    package: payload.packageId ? { connect: { id: payload.packageId } } : undefined,
+    restaurants: payload.restaurants?.length ? { connect: payload.restaurants.map((id) => ({ id })) } : undefined,
   };
 
   const user = await prisma.user.create({
@@ -261,6 +259,4 @@ const handleCreateUser = async (payload: IUser) => {
 //   };
 // };
 
-export {
-  handleCreateUser,
-};
+export { handleCreateUser };

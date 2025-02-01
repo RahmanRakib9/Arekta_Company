@@ -31,6 +31,6 @@ export interface IUser {
   contactNumber?: string;
   designation?: Designation;
   isVerified?: boolean;
-  packageId?: string;  
+  packageId?: string;
   restaurants?: string[];
 }

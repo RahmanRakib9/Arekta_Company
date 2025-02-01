@@ -9,13 +9,13 @@ const signInSchema = z.object({
 
 const createUserSchema = z
   .object({
-    id:z.string().optional(),
+    id: z.string().optional(),
     username: z.string(),
     email: z.string().email({ message: "Invalid email address" }),
     password: z.string().min(6, {
       message: "Password must be at least 6 characters",
     }),
-    contactNumber:z.string(),
+    contactNumber: z.string(),
     Designation: z.enum(["USER", "ADMIN"], { message: "Invalid designation" }),
     isVerified: z.boolean(),
     packageId: z.string(),
