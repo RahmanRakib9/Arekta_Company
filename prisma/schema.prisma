@@ -15,7 +15,7 @@ enum DESIGNATION {
 
 model User {
   id            String       @id @default(auto()) @map("_id") @db.ObjectId
-  userName      String?
+  userName      String?      @unique // should be server generated unique userName in future
   email         String
   password       String
   contactNumber String?
@@ -30,12 +30,13 @@ model User {
 
 model Restaurant {
   id                    String @id @default(auto()) @map("_id") @db.ObjectId
+  registrationNumber    String? @unique // should be server generated unique userName in future
   name                  String
   officialEmail         String
   officialContactNumber String
   address               String
   city                  String
-  District              String
+  district              String
   postCode              String
   tradeLicense          String
   // One user can own multiple restaurants
