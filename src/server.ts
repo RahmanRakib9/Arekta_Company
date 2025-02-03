@@ -30,7 +30,7 @@ if (config.ENV === "development") {
 server.use("/api/v1/auth", authRouter);
 server.use("/api/v1/restaurants", restaurantRouter);
 server.use("/api/v1/packages", packageRouter);
-server.use("/api/v1/facilities",facilityRouter );
+server.use("/api/v1/facilities", facilityRouter);
 server.get("/", (req, res) => {
   return res.status(httpStatus.OK).send({ message: "The Server is running successfully!" });
 });
