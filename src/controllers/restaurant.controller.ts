@@ -39,7 +39,7 @@ const createRestaurant = async (req: Request, res: Response, next: NextFunction)
     const restaurant = await handleCreateRestaurant(payload);
 
     res.json({
-      message: "User created successfully",
+      message: "Restaurant created successfully",
       status: httpStatus.CREATED,
       restaurant,
     });

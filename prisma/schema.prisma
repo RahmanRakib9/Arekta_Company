@@ -23,7 +23,7 @@ model User {
   isVerified    Boolean?
   // 1 user can have 1 package
   packageId     String       @unique @db.ObjectId
-  package       PACKAGE?     @relation(fields: [packageId], references: [id])
+  package       Package?     @relation(fields: [packageId], references: [id])
   // each user can have multiple restaurants
   restaurants   Restaurant[]
 }
@@ -67,11 +67,20 @@ enum PACKAGE_TYPE {
   ELITE
 }
 
-model PACKAGE {
+// first of all we will create a package then we will create facility by referencing the packageId 
+model Package {
   id          String       @id @default(auto()) @map("_id") @db.ObjectId
   name        String
-  // facilities : would be a facilities model
   price       Int
   packageType PACKAGE_TYPE
   users       User[]
+  facilities  Facility[]  @relation("PackageFacilities")
+}
+
+model Facility {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  packageId   String    @db.ObjectId
+  package     Package   @relation(fields: [packageId], references: [id], name: "PackageFacilities")
 }

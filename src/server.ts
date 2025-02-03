@@ -12,6 +12,7 @@ import authRouter from "./routers/v1/auth.router";
 import { globalErrorHandler, notFoundHandler } from "./middlewares/error.middleware";
 import docsRouter from "./routers/v1/docs.router";
 import restaurantRouter from "./routers/v1/restaurant.router";
+import packageRouter from "./routers/v1/package.router";
 
 const server = express();
 
@@ -27,6 +28,7 @@ if (config.ENV === "development") {
 /*-------------------ROUTERS-------------------*/
 server.use("/api/v1/auth", authRouter);
 server.use("/api/v1/restaurants", restaurantRouter);
+server.use("/api/v1/packages", packageRouter);
 server.get("/", (req, res) => {
   return res.status(httpStatus.OK).send({ message: "The Server is running successfully!" });
 });
