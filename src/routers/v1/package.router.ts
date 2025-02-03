@@ -5,6 +5,6 @@ import { createPackage } from "../../controllers/package.controller";
 
 const packageRouter = express.Router();
 
-packageRouter.post("/",createPackage);
+packageRouter.post("/", createPackage);
 
 export default packageRouter;
